@@ -22,9 +22,9 @@ function show (req, res) {
 
     const id = parseInt(req.params.id);
 
-    const currentId = books.find((elem) => elem.id === id);
+    const currentBook = books.find((elem) => elem.id === id);
 
-    currentId ? res.json(currentId) : res.status(404).json({
+    currentBook ? res.json(currentBook) : res.status(404).json({
 
         status: 404,
         error: "Not Found",
@@ -43,13 +43,13 @@ function store (req, res) {
         id,
         "title": req.body.title,
         "author": req.body.author,
-        "year": req.body.year,
+        "year": parseInt(req.body.year),
         "available": true
     }
 
     books.push(newBook);
 
-    res.sendStatus(204);
+    res.status(201).json(newBook);// status for created
 }
 
 //update
@@ -57,9 +57,9 @@ function update (req, res) {
 
     const id = parseInt(req.params.id);
 
-    const currentId = books.find((elem) => elem.id === id);
+    const currentBook = books.find((elem) => elem.id === id);
 
-    if(!currentId) {
+    if(!currentBook) {
 
         return res.status(404).json({
 
@@ -70,11 +70,12 @@ function update (req, res) {
     }
 
     //update new data
-    currentId.title = req.body.title;
-    currentId.author = req.body.author;
-    currentId.year = req.body.year;
+    currentBook.title = req.body.title;
+    currentBook.author = req.body.author;
+    currentBook.year = parseInt(req.body.year);
+    currentBook.available = req.body.available === "true" ? true : false;
 
-    res.json(currentId);
+    res.json(currentBook);
 }
 
 //destroy
