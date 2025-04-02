@@ -48,7 +48,7 @@ Per testare questi endpoint, puoi utilizzare strumenti come Postman o cURL.
 
 ## �� Contributi
 
-- Mattia Zacchinato
-- Willy Marino
-- Enrico Ciccolini
-- Pierdomenico Pacilio
+- [@Mattia Zecchinato](https://www.github.com/MattiaZecchinato)
+- [@Willy Marino](https://github.com/willymariino)
+- [@Enrico Ciccolini](https://github.com/EnricoCiccolini)
+- [@Pierdomenico Pacilio](https://github.com/PierdomenicoPacilio)
